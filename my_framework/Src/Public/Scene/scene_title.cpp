@@ -10,7 +10,6 @@ bool SceneTitle::Initialize() {
 	sound0 = new Sound(L"Data/Sound/title_bgm.wav");
 	sound0->Play();
 
-
 	return true;
 }
 
@@ -42,12 +41,11 @@ void SceneTitle::Execute() {
 	Font::SetRect(200, 100, 500, WINDOW_HEIGHT);
 	Font::SetTextAlignment(DWRITE_TEXT_ALIGNMENT::DWRITE_TEXT_ALIGNMENT_CENTER);
 	Font::SetColor(0xffffffff);
-	Font::Print(L"testesなななtwstsse　%d ", Input::JoyPovOn(18000));
+	Font::Print(L"変更後　%d ", Input::JoyPovOn(18000));
 	Font::SetColor(0xff88ff88);
 	Font::Print(200, 130, L"vvv　%d ", Input::JoyPovOn(18000));
 	Font::Print(200, 160, L"vvv　%d ", Input::JoyPovOn(18000));
 	Font::SetRect();
-
 
 	Scene::Execute();
 }
