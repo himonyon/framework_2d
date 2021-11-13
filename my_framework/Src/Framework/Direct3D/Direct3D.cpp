@@ -1,4 +1,5 @@
-#include "../../environment.h"
+#include "../../../framework.h"
+#include "../../../environment.h"
 
 ID3D11Device* Direct3D::pDevice = NULL;
 ID3D11DeviceContext* Direct3D::pDeviceContext = NULL;

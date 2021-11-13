@@ -8,8 +8,6 @@
 #define MOVE_SPEED 1 //ジョイスティック幅
 #define FONT_STRING_MAX	(0x0400)	//1フレームで実行できるrenderの数
 #define FONT_CHARACTER_MAX	(0x2000)	//1フレームで描画できる文字の数
-#define MaxFontNum (20)	//1フレームの描画できる文字列
-#define MaxSounds (50)
 
 //ジョイスティック
 #define JOY_SQUARE (0)
@@ -42,6 +40,7 @@
 #include <dinput.h>
 
 #include <stdio.h>
+#include <time.h>
 #include <vector>
 #include <locale.h>
 #include <mmsystem.h>
@@ -64,12 +63,18 @@ using namespace DirectX;
 
 
 //フレームワークのヘッダー
-#include "Src/Framework/Font.h"
-#include "Src/Framework/Input.h"
-#include "Src/Framework/Sound.h"
-#include "Src/Framework/Sprite.h"
-#include "Src/Framework/Shader.h"
-#include "Src/Framework/Direct3D.h"
+#include "Src/Framework/Sprite/Sprite.h"
+#include "Src/Framework/Sprite/SpriteManager.h"
+#include "Src//Framework/Timer/Timer.h"
+#include "Src/Framework/Font/Font.h"
+#include "Src/Framework/Input/Input.h"
+#include "Src//Framework//Input/Keyboard.h"
+#include "Src//Framework//Input/Mouse.h"
+#include "Src//Framework//Input/Joystick.h"
+#include "Src/Framework/Sound/Sound.h"
+#include "Src/Framework/Sound/SoundManager.h"
+#include "Src/Framework/Shader/Shader.h"
+#include "Src/Framework/Direct3D/Direct3D.h"
 #include "Src/Framework/Main.h"
 
 

@@ -50,6 +50,8 @@ void Main::App() {
 		QueryPerformanceCounter(&startCount);
 	}
 
+	Timer::FrameTimeExecute();
+
 	Execute();
 
 	Direct3D::Clear();

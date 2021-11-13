@@ -144,14 +144,19 @@
     <ClInclude Include="my_framework.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Src\Framework\Animation\SpriteAnimation.h" />
-    <ClInclude Include="Src\Framework\Direct3D.h" />
-    <ClInclude Include="Src\Framework\Font.h" />
-    <ClInclude Include="Src\Framework\Input.h" />
+    <ClInclude Include="Src\Framework\Direct3D\Direct3D.h" />
+    <ClInclude Include="Src\Framework\Font\Font.h" />
+    <ClInclude Include="Src\Framework\Input\Input.h" />
+    <ClInclude Include="Src\Framework\Input\Joystick.h" />
+    <ClInclude Include="Src\Framework\Input\Keyboard.h" />
+    <ClInclude Include="Src\Framework\Input\Mouse.h" />
     <ClInclude Include="Src\Framework\Main.h" />
-    <ClInclude Include="Src\Framework\Model.h" />
-    <ClInclude Include="Src\Framework\Shader.h" />
-    <ClInclude Include="Src\Framework\Sound.h" />
-    <ClInclude Include="Src\Framework\Sprite.h" />
+    <ClInclude Include="Src\Framework\Shader\Shader.h" />
+    <ClInclude Include="Src\Framework\Sound\Sound.h" />
+    <ClInclude Include="Src\Framework\Sound\SoundManager.h" />
+    <ClInclude Include="Src\Framework\Sprite\Sprite.h" />
+    <ClInclude Include="Src\Framework\Sprite\SpriteManager.h" />
+    <ClInclude Include="Src\Framework\Timer\Timer.h" />
     <ClInclude Include="Src\Public\Scene\scene.h" />
     <ClInclude Include="Src\Public\Scene\sceneTable.h" />
     <ClInclude Include="Src\Public\Scene\scene_game.h" />
@@ -162,14 +167,19 @@
   <ItemGroup>
     <ClCompile Include="my_framework.cpp" />
     <ClCompile Include="Src\Framework\Animation\SpriteAnimation.cpp" />
-    <ClCompile Include="Src\Framework\Direct3D.cpp" />
-    <ClCompile Include="Src\Framework\Font.cpp" />
-    <ClCompile Include="Src\Framework\Input.cpp" />
+    <ClCompile Include="Src\Framework\Direct3D\Direct3D.cpp" />
+    <ClCompile Include="Src\Framework\Font\Font.cpp" />
+    <ClCompile Include="Src\Framework\Input\Input.cpp" />
+    <ClCompile Include="Src\Framework\Input\Joystick.cpp" />
+    <ClCompile Include="Src\Framework\Input\Keyboard.cpp" />
+    <ClCompile Include="Src\Framework\Input\Mouse.cpp" />
     <ClCompile Include="Src\Framework\Main.cpp" />
-    <ClCompile Include="Src\Framework\Model.cpp" />
-    <ClCompile Include="Src\Framework\Shader.cpp" />
-    <ClCompile Include="Src\Framework\Sound.cpp" />
-    <ClCompile Include="Src\Framework\Sprite.cpp" />
+    <ClCompile Include="Src\Framework\Shader\Shader.cpp" />
+    <ClCompile Include="Src\Framework\Sound\Sound.cpp" />
+    <ClCompile Include="Src\Framework\Sound\SoundManager.cpp" />
+    <ClCompile Include="Src\Framework\Sprite\Sprite.cpp" />
+    <ClCompile Include="Src\Framework\Sprite\SpriteManager.cpp" />
+    <ClCompile Include="Src\Framework\Timer\Timer.cpp" />
     <ClCompile Include="Src\Public\Scene\scene.cpp" />
     <ClCompile Include="Src\Public\Scene\sceneTable.cpp" />
     <ClCompile Include="Src\Public\Scene\scene_game.cpp" />
@@ -187,10 +197,6 @@
     <FxCompile Include="Src\Shader\ps_2d.psh">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">main</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-    </FxCompile>
-    <FxCompile Include="Src\Shader\texture.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">vsMain</EntryPointName>
     </FxCompile>
     <FxCompile Include="Src\Shader\vs_2d.vsh">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>

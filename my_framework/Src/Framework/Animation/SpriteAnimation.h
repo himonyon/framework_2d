@@ -25,7 +25,7 @@ public:
 	};
 
 private:
-	std::vector<KeyFlame*> keyFlame;
+	std::vector<KeyFlame*> keyFrame;
 
 public:
 	SpriteAnimation(Sprite* pSprite, bool loop = false);

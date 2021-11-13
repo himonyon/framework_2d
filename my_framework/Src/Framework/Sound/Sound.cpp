@@ -1,9 +1,9 @@
-#include "../../environment.h"
+#include "../../../framework.h"
+#include "../../../environment.h"
 
 IXAudio2* Sound::pXAudio2 = NULL;
 IXAudio2MasteringVoice* Sound::pMasteringVoice = NULL;
 
-Sound* Sound::sounds[MaxSounds];
 
 bool Sound::InitSound() {
 	if(FAILED(CoInitializeEx(NULL, COINIT_MULTITHREADED))) {
@@ -32,25 +32,11 @@ void Sound::DestroySound() {
 
 Sound::Sound(LPCWSTR file) {
 	this->Load(file);
-
-	for (int i = 0; i < sizeof(sounds) / sizeof(sounds[0]); i++) {
-		if (sounds[i] == NULL) {
-			sounds[i] = this;
-			break;
-		}
-	}
 }
 
 Sound::~Sound() {
 	s_dwWavSize = NULL;
 	pSourceVoice->DestroyVoice();
-}
-
-void Sound::DeleteSounds() {
-	for (int i = 0; i < sizeof(sounds) / sizeof(sounds[0]); i++) {
-		delete sounds[i];
-		sounds[i] = NULL;
-	}
 }
 
 bool Sound::Load(LPCWSTR szFileName) {

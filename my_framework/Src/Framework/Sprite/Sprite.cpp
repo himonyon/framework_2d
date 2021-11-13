@@ -1,6 +1,5 @@
-#include "../../framework.h"
-#include "../../environment.h"
-
+#include "../../../framework.h"
+#include "../../../environment.h"
 //’¸“_—v‘f
 D3D11_INPUT_ELEMENT_DESC hInElementDesc_Sprite[] =
 {
@@ -185,10 +184,6 @@ Sprite::Sprite(float x, float y, float width, float height,  const WCHAR* textur
 	sortEnable = false;
 	executeEnable = true;
 	renderEnable = isRender;
-
-	if (pScene != NULL) {
-		pScene->RegisterObject(this);
-	}
 }
 
 Sprite::~Sprite() {

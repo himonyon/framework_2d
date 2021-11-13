@@ -13,16 +13,14 @@ private:
 	UINT64 currentSound = 0; //再生停止時までに処理されたサンプルの合計(再生中か確認用)
 
 private:
-	static Sound* sounds[MaxSounds];
-
 	bool PlaySound();
 	bool Load(LPCWSTR szFileName);
 public:
 	Sound(LPCWSTR file);
 	~Sound();
+
 	static bool InitSound();
 	static void DestroySound();
-	static void DeleteSounds();
 
 
 	void SetVolume(float volume);

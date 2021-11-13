@@ -50,7 +50,6 @@ void deleteScene()
 	if (pScene != NULL)
 	{
 		//ƒV[ƒ“‚ÌI—¹
-		Sound::DeleteSounds();
 		delete pScene;
 		pScene = NULL;
 	}

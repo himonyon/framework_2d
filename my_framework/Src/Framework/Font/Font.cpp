@@ -1,4 +1,5 @@
-#include "../../environment.h"
+#include "../../../framework.h"
+#include "../../../environment.h"
 
 ID2D1Factory* Font::pD2d1Factory = 0;
 IDWriteFactory* Font::pDWFactory = 0;
@@ -13,7 +14,8 @@ DWRITE_TEXT_ALIGNMENT Font::Alignment = DWRITE_TEXT_ALIGNMENT::DWRITE_TEXT_ALIGN
 WCHAR font[] = L"Meiryo";
 WCHAR* Font::FontStyle = font;
 float Font::Size = 18.0f;
-float Font::Left = 0, Font::Right = WINDOW_WIDTH, Font::Top = 0, Font::Bottom = WINDOW_HEIGHT;
+float Font::PosX = 0, Font::PosY = 0;
+float Font::RectL = 0, Font::RectR = WINDOW_WIDTH, Font::RectT = 0, Font::RectB = WINDOW_HEIGHT;
 
 bool Font::Initialize(void* hdl) {
 	HWND hWnd = (HWND)hdl;
@@ -90,10 +92,10 @@ bool Font::Initialize(void* hdl) {
 		fonts[i] = new Font();
 	}
 
-	rect.left = Left;
-	rect.top = Top;
-	rect.right = Right;
-	rect.bottom = Bottom;
+	rect.left = RectL;
+	rect.top = RectT;
+	rect.right = RectR;
+	rect.bottom = RectB;
 
 	return true;
 }
@@ -105,13 +107,17 @@ void Font::Destroy(void) {
 }
 
 Font::Font() {
-	HRESULT hr;
-
 	size = Size;
 
 	allocPtr = new WCHAR[FONT_CHARACTER_MAX];
 	currentPtr = allocPtr;
 
+	static float reciprocal = 1.0f / 255.0f; D2D1_COLOR_F col;
+	col.r = (float)((Color & 0x00ff0000) >> 16) * reciprocal;
+	col.g = (float)((Color & 0x0000ff00) >> 8) * reciprocal;
+	col.b = (float)((Color & 0x000000ff) >> 0) * reciprocal;
+	col.a = (float)((Color & 0xff000000) >> 24) * reciprocal;
+	pBrush->SetColor(&col);
 	
 	//フォントの作成
 	if (Create(FontStyle, (int)size) == false)
@@ -137,10 +143,12 @@ void Font::registerString(int fontNum, const WCHAR* string, UINT32 count) {
 		fonts[fontNum]->fontStyle = FontStyle;
 		fonts[fontNum]->Create(FontStyle, (int)Size);
 	}
-	fonts[fontNum]->left = Left;
-	fonts[fontNum]->top = Top;
-	fonts[fontNum]->right = Right;
-	fonts[fontNum]->bottom = Bottom;
+	fonts[fontNum]->posX = PosX;
+	fonts[fontNum]->posY = PosY;
+	fonts[fontNum]->rectL = RectL;
+	fonts[fontNum]->rectT = RectT;
+	fonts[fontNum]->rectR = RectR;
+	fonts[fontNum]->rectB = RectB;
 	fonts[fontNum]->alignment = Alignment;
 	fonts[fontNum]->color = Color;
 	fonts[fontNum]->ptr = fonts[fontNum]->currentPtr;
@@ -160,10 +168,10 @@ void Font::RenderString() {
 		}
 
 		//描画位置の設定
-		rect.left = fonts[i]->left;
-		rect.top = fonts[i]->top;
-		rect.right = fonts[i]->right;
-		rect.bottom = fonts[i]->bottom;
+		rect.left = fonts[i]->rectL;
+		rect.top = fonts[i]->rectT;
+		rect.right = fonts[i]->rectR;
+		rect.bottom = fonts[i]->rectB;
 		fonts[i]->pTextFormat->SetTextAlignment(fonts[i]->alignment);
 
 		//描画色の設定
@@ -193,10 +201,10 @@ void Font::RenderString() {
 	}
 
 	//描画位置のリセット
-	Left = 0;
-	Top = 0;
-	Right = WINDOW_WIDTH;
-	Bottom = WINDOW_HEIGHT;
+	RectL = 0;
+	RectT = 0;
+	RectR = WINDOW_WIDTH;
+	RectB = WINDOW_HEIGHT;
 
 	return;
 }
@@ -243,13 +251,13 @@ void Font::Print(const WCHAR* string, ...) {
 	}
 }
 
-void Font::Print(float left, float top, const WCHAR* string, ...) {
+void Font::Print(float rectL, float rectT, const WCHAR* string, ...) {
 	if (string == NULL)return;
 	for (int i = 0; i < MaxFontNum; i++) {
 		if (fonts[i]->isDraw == false) {
 			fonts[i]->isDraw = true;
-			Left = left;
-			Top = top;
+			RectL = rectL;
+			RectT = rectT;
 			va_list	va;
 			va_start(va, string);
 			WCHAR buf[0x100];
@@ -274,16 +282,22 @@ void Font::Render() {
 }
 
 void Font::SetRect() {
-	Left = 0;
-	Top = 0;
-	Right = WINDOW_WIDTH;
-	Bottom = WINDOW_HEIGHT;
+	RectL = 0;
+	RectT = 0;
+	RectR = WINDOW_WIDTH;
+	RectB = WINDOW_HEIGHT;
 }
-void Font::SetRect(float left, float top, float right, float bottom) {
-	Left = left;
-	Top = top;
-	Right = right;
-	Bottom = bottom;
+void Font::SetRect(float rectL, float rectT, float rectR, float rectB) {
+	RectL = rectL;
+	RectT = rectT;
+	RectR = rectR;
+	RectB = rectB;
+}
+void Font::SetRectWH(float x, float y, float width, float height) {
+	RectL = x - width/2;
+	RectT = y - height / 2;
+	RectR = x + width / 2;
+	RectB = y + height/2;
 }
 
 void Font::SetColor(DWORD color) {

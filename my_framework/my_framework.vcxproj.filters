@@ -31,6 +31,27 @@
     <Filter Include="ソース ファイル\Src\Shader">
       <UniqueIdentifier>{0151189c-7f8d-4728-bc64-cf71a2f01716}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\Direct3D">
+      <UniqueIdentifier>{b8cde10c-b4ed-4cea-86f1-d08a772b822d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\Font">
+      <UniqueIdentifier>{bb5585e8-a75c-4585-930f-a16141d8bc45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\Sound">
+      <UniqueIdentifier>{26bb6839-46bd-4ab4-bcfb-a454a4b71aa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\Input">
+      <UniqueIdentifier>{f1f8d070-16ee-4b26-8372-68722b0eaaad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\Sprite">
+      <UniqueIdentifier>{ddc9fad4-ebe5-4a58-a329-d070acb83df4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\Shader">
+      <UniqueIdentifier>{cc163ebf-6a35-429f-adc3-e97cc8bf18cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\Timer">
+      <UniqueIdentifier>{10a2cc3b-3b5c-470b-a642-a9a7fe3a0a69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -47,30 +68,6 @@
     </ClInclude>
     <ClInclude Include="WICTextureLoader11.h">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Direct3D.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Font.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Input.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Main.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Model.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Shader.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Sound.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Sprite.h">
-      <Filter>ソース ファイル\Src\Framework</Filter>
     </ClInclude>
     <ClInclude Include="environment.h">
       <Filter>ソース ファイル</Filter>
@@ -90,6 +87,45 @@
     <ClInclude Include="Src\Public\Scene\sceneTable.h">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Framework\Main.h">
+      <Filter>ソース ファイル\Src\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Direct3D\Direct3D.h">
+      <Filter>ソース ファイル\Src\Framework\Direct3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Font\Font.h">
+      <Filter>ソース ファイル\Src\Framework\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\Input.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Timer\Timer.h">
+      <Filter>ソース ファイル\Src\Framework\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Shader\Shader.h">
+      <Filter>ソース ファイル\Src\Framework\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Sprite\Sprite.h">
+      <Filter>ソース ファイル\Src\Framework\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Sprite\SpriteManager.h">
+      <Filter>ソース ファイル\Src\Framework\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Sound\Sound.h">
+      <Filter>ソース ファイル\Src\Framework\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Sound\SoundManager.h">
+      <Filter>ソース ファイル\Src\Framework\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\Mouse.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\Joystick.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\Keyboard.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="my_framework.cpp">
@@ -97,30 +133,6 @@
     </ClCompile>
     <ClCompile Include="WICTextureLoader11.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Direct3D.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Font.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Input.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Main.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Model.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Shader.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Sound.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Sprite.cpp">
-      <Filter>ソース ファイル\Src\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Src\Framework\Animation\SpriteAnimation.cpp">
       <Filter>ソース ファイル\Src\Framework\Animation</Filter>
@@ -137,6 +149,45 @@
     <ClCompile Include="Src\Public\Scene\sceneTable.cpp">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Framework\Main.cpp">
+      <Filter>ソース ファイル\Src\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Direct3D\Direct3D.cpp">
+      <Filter>ソース ファイル\Src\Framework\Direct3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Font\Font.cpp">
+      <Filter>ソース ファイル\Src\Framework\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\Input.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Timer\Timer.cpp">
+      <Filter>ソース ファイル\Src\Framework\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Shader\Shader.cpp">
+      <Filter>ソース ファイル\Src\Framework\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Sprite\Sprite.cpp">
+      <Filter>ソース ファイル\Src\Framework\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Sprite\SpriteManager.cpp">
+      <Filter>ソース ファイル\Src\Framework\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Sound\Sound.cpp">
+      <Filter>ソース ファイル\Src\Framework\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Sound\SoundManager.cpp">
+      <Filter>ソース ファイル\Src\Framework\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\Keyboard.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\Joystick.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\Mouse.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="my_framework.rc">
@@ -152,9 +203,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Src\Shader\texture.hlsl">
-      <Filter>ソース ファイル\Src\Shader</Filter>
-    </FxCompile>
     <FxCompile Include="Src\Shader\ps_2d.psh">
       <Filter>ソース ファイル\Src\Shader</Filter>
     </FxCompile>
