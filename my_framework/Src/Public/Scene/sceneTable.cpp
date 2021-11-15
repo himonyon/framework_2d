@@ -33,7 +33,7 @@ void switchScene()
 	//ƒV[ƒ“‚Ìì¬
 	switch (reserveScene)
 	{
-	case eSceneTable::Title:			pScene = new SceneTitle();			break;
+	case eSceneTable::Title:		pScene = new SceneTitle();			break;
 	case eSceneTable::Game:			pScene = new SceneGame();			break;
 	}
 

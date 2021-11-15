@@ -1,153 +1,78 @@
 #include "../../../framework.h"
 #include "../../../environment.h"
 
-HDC Input::hdc = 0;
-LPDIRECTINPUT8 Input::pInput = 0;
-LPDIRECTINPUTDEVICE8 Input::pKeyDevice = 0;
-LPDIRECTINPUTDEVICE8 Input::pMouseDevice = 0;
-LPDIRECTINPUTDEVICE8 Input::pJoystickDevice = 0;
+std::function<bool(int(&inputs)[2])> Input::funcTrg = Input::BothDevTrg;
+std::function<bool(int(&inputs)[2])> Input::funcOn = Input::BothDevOn;
+std::function<bool(int(&inputs)[2])> Input::funcRel = Input::BothDevRel;
 
-BYTE Input::diKeyboard[256]; //入力されたキー
-BYTE Input::oldKeyboard[256]; //入力されたキー
 
-DIMOUSESTATE2 Input::diMouse; //入力されたマウス
-
-DIJOYSTATE2 Input::diJoy = {0};
-DIJOYSTATE2 Input::oldJoy = {0};
-int	Input::JoystickAxisRange = 1000;
-float Input::JoystickAxisRangeI = 1.0f / (float)JoystickAxisRange;
-
-bool Input::InitInput(void* hWnd) {
-	//DirectInputオブジェクトの作成
-	if (FAILED(DirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8,
-		(VOID**)&pInput, NULL))) {
-		return false;
-	}
-
-	//キーボードデバイスオブジェクトの作成
-	if (FAILED(pInput->CreateDevice(GUID_SysKeyboard, &pKeyDevice, NULL))) {
-		return false;
-	}
-	//デバイスをキーボードに設定
-	if (FAILED(pKeyDevice->SetDataFormat(&c_dfDIKeyboard))) {
-		return false;
-	}
-
-	//マウスデバイスオブジェクトの作成
-	if (FAILED(pInput->CreateDevice(GUID_SysMouse, &pMouseDevice, NULL))) {
-		return false;
-	}
-	//デバイスをマウスに設定
-	if (FAILED(pMouseDevice->SetDataFormat(&c_dfDIMouse2))) {
-		return false;
-	}
-
-	//ジョイスティック
-	//デバイスの列挙
-	HRESULT hr;
-	hr = pInput->EnumDevices(DI8DEVCLASS_GAMECTRL, EnumJoysticksCallback, NULL, DIEDFL_ATTACHEDONLY);
-	if (FAILED(hr))
-	{
-		return FALSE;
-	}
-	if (!pJoystickDevice) {
-		return FALSE;
-	}
-	if (FAILED(pJoystickDevice->SetDataFormat(&c_dfDIJoystick2))) {
-		return FALSE;
-	}
-
-	//協調レベルの設定
-	if (FAILED(pKeyDevice->SetCooperativeLevel((HWND)hWnd, DISCL_NONEXCLUSIVE | DISCL_BACKGROUND))) {
-		return false;
-	}
-	if (FAILED(pJoystickDevice->SetCooperativeLevel((HWND)hWnd, DISCL_NONEXCLUSIVE | DISCL_BACKGROUND))) {
-		return false;
-	}
-
-	//コントローラーを列挙して設定
-	if (FAILED(pJoystickDevice->EnumObjects(Input::EnumObjectsCallback, NULL, DIDFT_ALL))) {
-		return FALSE;
-	}
-
-	//デバイスを所得する
-	pKeyDevice->Acquire();
-	pJoystickDevice->Acquire();
-
-	diJoy.rgdwPOV[0] = 1;
-	oldJoy.rgdwPOV[0] = 1;
-	return true;
+bool Input::Trg(int(&inputs)[2]) {
+	bool flag = false;
+	return funcTrg(inputs);
+}
+bool Input::On(int(&inputs)[2]) {
+	return funcOn(inputs);
+}
+bool Input::Rel(int(&inputs)[2]) {
+	return funcRel(inputs);
 }
 
-void Input::DestroyInput() {
-	if (pKeyDevice) pKeyDevice->Unacquire();
-	SAFE_RELEASE(pKeyDevice);
-
-	if (pMouseDevice)	pMouseDevice->Unacquire();
-	SAFE_RELEASE(pMouseDevice)
-
-	
-	if (pJoystickDevice)	pJoystickDevice->Unacquire();
-	SAFE_RELEASE(pJoystickDevice);
-
-	SAFE_RELEASE(pInput);
+//処理部分
+bool Input::BothDevTrg(int(&inputs)[2]) {
+	if (Keyboard::Trg(inputs[0])) return true;
+	if (Joystick::Trg(inputs[1])) return true;
+	return false;
+}
+bool Input::BothDevOn(int(&inputs)[2]) {
+	if (Keyboard::On(inputs[0])) return true;
+	if (Joystick::On(inputs[1])) return true;
+	return false;
+}
+bool Input::BothDevRel(int(&inputs)[2]) {
+	if (Keyboard::Rel(inputs[0])) return true;
+	if (Joystick::Rel(inputs[1])) return true;
+	return false;
 }
 
-BOOL CALLBACK Input::EnumObjectsCallback(const DIDEVICEOBJECTINSTANCE* pdidoi, VOID* pContext) {
-	if (pdidoi->dwType & DIDFT_AXIS) {
-		DIPROPRANGE diprg;
-		diprg.diph.dwSize = sizeof(DIPROPRANGE);
-		diprg.diph.dwHeaderSize = sizeof(DIPROPHEADER);
-		diprg.diph.dwHow = DIPH_BYID;
-		diprg.diph.dwObj = pdidoi->dwType;
-		diprg.lMin = -JoystickAxisRange;
-		diprg.lMax = +JoystickAxisRange;
-
-		if (FAILED(pJoystickDevice->SetProperty(DIPROP_RANGE, &diprg.diph))) {
-			return DIENUM_STOP;
-		}
-	}
-	return DIENUM_CONTINUE;
+bool Input::KeyboardDevTrg(int(&inputs)[2]) {
+	if (Keyboard::Trg(inputs[0])) return true;
+	return false;
 }
-BOOL CALLBACK Input::EnumJoysticksCallback(const DIDEVICEINSTANCE* pdidInstance, VOID* pContext) {
-	HRESULT hr;
-
-	//列挙されたジョイスティックへのインターフェイスを取得
-	hr = pInput->CreateDevice(pdidInstance->guidInstance, &pJoystickDevice, NULL);
-	if (FAILED(hr))
-	{
-		return DIENUM_CONTINUE;
-	}
-
-	return DIENUM_STOP;
+bool Input::KeyboardDevOn(int(&inputs)[2]) {
+	if (Keyboard::On(inputs[0])) return true;
+	return false;
+}
+bool Input::KeyboardDevRel(int(&inputs)[2]) {
+	if (Keyboard::Rel(inputs[0])) return true;
+	return false;
 }
 
-void Input::KeyManager() {
-	HRESULT hr;
+bool Input::JoystickDevTrg(int(&inputs)[2]) {
+	if (Joystick::Trg(inputs[1])) return true;
+	return false;
+}
+bool Input::JoystickDevOn(int(&inputs)[2]) {
+	if (Joystick::On(inputs[1])) return true;
+	return false;
+}
+bool Input::JoystickDevRel(int(&inputs)[2]) {
+	if (Joystick::Rel(inputs[1])) return true;
+	return false;
+}
 
-	//マウス
-	hr = pMouseDevice->GetDeviceState(sizeof(DIMOUSESTATE2), &diMouse);
-	if (FAILED(hr))
-	{
-		hr = pMouseDevice->Acquire();
-	}
-
-	//キーボード
-	memcpy(oldKeyboard, diKeyboard, sizeof(oldKeyboard));	//前フレームのキー状態を保存
-	hr = pKeyDevice->GetDeviceState(sizeof(diKeyboard), &diKeyboard);
-	if (FAILED(hr)) {
-		pKeyDevice->Acquire();
-	}
-
-	//ジョイスティック
-	if (pJoystickDevice != NULL) {
-		memcpy(&oldJoy, &diJoy, sizeof(DIJOYSTATE2));
-		hr = pJoystickDevice->Poll();
-		if (FAILED(hr)) {
-			pJoystickDevice->Acquire();
-		}
-		hr = pJoystickDevice->GetDeviceState(sizeof(DIJOYSTATE2), &diJoy);
-	}
-
-	Mouse::SetMouseStatus();
+//デバイスの切り替え
+void Input::SetKeyboardDevice() {
+	funcTrg = KeyboardDevTrg;
+	funcOn = KeyboardDevOn;
+	funcRel = KeyboardDevRel;
+}
+void Input::SetJoystickDevice() {
+	funcTrg = JoystickDevTrg;
+	funcOn = JoystickDevOn;
+	funcRel = JoystickDevRel;
+}
+void Input::SetBothDevice() {
+	funcTrg = BothDevTrg;
+	funcOn = BothDevOn;
+	funcRel = BothDevRel;
 }

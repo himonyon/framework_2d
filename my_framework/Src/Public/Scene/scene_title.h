@@ -2,9 +2,11 @@
 
 class SceneTitle : public Scene {
 private:
-	Sprite* sprite;
-	Sprite* sprite2;
-	Sound* sound0;
+	noDel_ptr<Sprite> sprite;
+	noDel_ptr<Sprite> sprite2;
+	noDel_ptr<Sound> sound0;
+	noDel_ptr<Sprite> sp;
+	std::unique_ptr<Sprite>usp;
 
 private:
 	//‰Šú‰»

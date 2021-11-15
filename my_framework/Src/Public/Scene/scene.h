@@ -1,7 +1,6 @@
 #pragma once
+#include "../../Framework/Input/InputConfig.h"
 
-#define MaxSounds (50) //1シーンのサウンドの最大数
-#define MaxSprites (256) //１シーンに管理できる画像数
 #define MaxAnimation (64) //１シーンに管理できるアニメーション
 
 class Scene : public SpriteManager, public SoundManager {

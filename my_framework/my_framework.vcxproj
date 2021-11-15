@@ -146,7 +146,9 @@
     <ClInclude Include="Src\Framework\Animation\SpriteAnimation.h" />
     <ClInclude Include="Src\Framework\Direct3D\Direct3D.h" />
     <ClInclude Include="Src\Framework\Font\Font.h" />
+    <ClInclude Include="Src\Framework\Input\DirectInput.h" />
     <ClInclude Include="Src\Framework\Input\Input.h" />
+    <ClInclude Include="Src\Framework\Input\InputConfig.h" />
     <ClInclude Include="Src\Framework\Input\Joystick.h" />
     <ClInclude Include="Src\Framework\Input\Keyboard.h" />
     <ClInclude Include="Src\Framework\Input\Mouse.h" />
@@ -161,6 +163,7 @@
     <ClInclude Include="Src\Public\Scene\sceneTable.h" />
     <ClInclude Include="Src\Public\Scene\scene_game.h" />
     <ClInclude Include="Src\Public\Scene\scene_title.h" />
+    <ClInclude Include="Src\Utility\noDel_ptr.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WICTextureLoader11.h" />
   </ItemGroup>
@@ -169,7 +172,9 @@
     <ClCompile Include="Src\Framework\Animation\SpriteAnimation.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\Direct3D.cpp" />
     <ClCompile Include="Src\Framework\Font\Font.cpp" />
+    <ClCompile Include="Src\Framework\Input\DirectInput.cpp" />
     <ClCompile Include="Src\Framework\Input\Input.cpp" />
+    <ClCompile Include="Src\Framework\Input\InputConfig.cpp" />
     <ClCompile Include="Src\Framework\Input\Joystick.cpp" />
     <ClCompile Include="Src\Framework\Input\Keyboard.cpp" />
     <ClCompile Include="Src\Framework\Input\Mouse.cpp" />
@@ -184,6 +189,7 @@
     <ClCompile Include="Src\Public\Scene\sceneTable.cpp" />
     <ClCompile Include="Src\Public\Scene\scene_game.cpp" />
     <ClCompile Include="Src\Public\Scene\scene_title.cpp" />
+    <ClCompile Include="Src\Utility\noDel_ptr.cpp" />
     <ClCompile Include="WICTextureLoader11.cpp" />
   </ItemGroup>
   <ItemGroup>

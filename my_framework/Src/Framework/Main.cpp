@@ -20,7 +20,7 @@ bool Main::Init(void* hWnd) {
 	Shader::InitShader();
 	Sprite::Initialize();
 	Sound::InitSound();
-	Input::InitInput(hWnd);
+	DirectInput::InitInput(hWnd);
 
 
 	//ƒV[ƒ“ì¬
@@ -34,7 +34,7 @@ bool Main::Init(void* hWnd) {
 void Main::Destroy() {
 	deleteScene();
 
-	Input::DestroyInput();
+	DirectInput::DestroyInput();
 	Sound::DestroySound();
 	Sprite::Destroy();
 	Shader::DestroyShader();
@@ -92,7 +92,7 @@ void Main::App() {
 // 
 // 
 void Main::Execute() {
-	Input::KeyManager();
+	DirectInput::KeyManager();
 
 	pScene->Execute();
 }

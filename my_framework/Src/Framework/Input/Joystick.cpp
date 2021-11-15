@@ -2,35 +2,35 @@
 #include "../../../environment.h"
 
 bool Joystick::IsValid() {
-	return Input::IsJoystickEnable();
+	return DirectInput::IsJoystickEnable();
 }
 bool Joystick::On(int button) {
-	return (Input::GetCurrentJoystick().rgbButtons[button] != 0);
+	return (DirectInput::GetCurrentJoystick().rgbButtons[button] != 0);
 }
 bool Joystick::Trg(int button) {
-	return (Input::GetCurrentJoystick().rgbButtons[button] != 0 && Input::GetOldJoystick().rgbButtons[button] == 0);
+	return (DirectInput::GetCurrentJoystick().rgbButtons[button] != 0 && DirectInput::GetOldJoystick().rgbButtons[button] == 0);
 }
 bool Joystick::Rel(int button) {
-	return (Input::GetCurrentJoystick().rgbButtons[button] == 0 && Input::GetOldJoystick().rgbButtons[button] != 0);
+	return (DirectInput::GetCurrentJoystick().rgbButtons[button] == 0 && DirectInput::GetOldJoystick().rgbButtons[button] != 0);
 }
 float Joystick::GetLX() {
-	return Input::GetCurrentJoystick().lX * Input::GetJoyAxisRange();
+	return DirectInput::GetCurrentJoystick().lX * DirectInput::GetJoyAxisRange();
 }
 float Joystick::GetLY() {
-	return Input::GetCurrentJoystick().lY * Input::GetJoyAxisRange();
+	return DirectInput::GetCurrentJoystick().lY * DirectInput::GetJoyAxisRange();
 }
 float Joystick::GetRX() {
-	return Input::GetCurrentJoystick().lZ * Input::GetJoyAxisRange();
+	return DirectInput::GetCurrentJoystick().lZ * DirectInput::GetJoyAxisRange();
 }
 float Joystick::GetRY() {
-	return Input::GetCurrentJoystick().lRz * Input::GetJoyAxisRange();
+	return DirectInput::GetCurrentJoystick().lRz * DirectInput::GetJoyAxisRange();
 }
 bool Joystick::PovOn(int pov) {
-	return Input::GetCurrentJoystick().rgdwPOV[0] == pov;
+	return DirectInput::GetCurrentJoystick().rgdwPOV[0] == pov;
 }
 bool Joystick::PovTrg(int pov) {
-	return Input::GetCurrentJoystick().rgdwPOV[0] == pov && Input::GetOldJoystick().rgdwPOV[0] != pov;
+	return DirectInput::GetCurrentJoystick().rgdwPOV[0] == pov && DirectInput::GetOldJoystick().rgdwPOV[0] != pov;
 }
 bool Joystick::PovRel(int pov) {
-	return Input::GetCurrentJoystick().rgdwPOV[0] != pov && Input::GetOldJoystick().rgdwPOV[0] == pov;
+	return DirectInput::GetCurrentJoystick().rgdwPOV[0] != pov && DirectInput::GetOldJoystick().rgdwPOV[0] == pov;
 }

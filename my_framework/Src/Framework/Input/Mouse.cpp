@@ -16,13 +16,13 @@ int Mouse::GetY() {
 	return y;
 }
 int Mouse::GetR() {
-	return Input::GetMouseState().lZ;
+	return DirectInput::GetMouseState().lZ;
 }
 int Mouse::GetDX() {
-	return Input::GetMouseState().lX;
+	return DirectInput::GetMouseState().lX;
 }
 int Mouse::GetDY() {
-	return Input::GetMouseState().lY;
+	return DirectInput::GetMouseState().lY;
 }
 bool Mouse::On(int mouse) {
 	return (mouse & on);
@@ -38,9 +38,9 @@ void Mouse::SetMouseStatus() {
 	//É}ÉEÉX
 	int Old = on;
 	on = 0;
-	if (Input::GetMouseState().rgbButtons[0])on |= 0x01;
-	if (Input::GetMouseState().rgbButtons[1])on |= 0x04;
-	if (Input::GetMouseState().rgbButtons[2])on |= 0x02;
+	if (DirectInput::GetMouseState().rgbButtons[0])on |= 0x01;
+	if (DirectInput::GetMouseState().rgbButtons[1])on |= 0x04;
+	if (DirectInput::GetMouseState().rgbButtons[2])on |= 0x02;
 	trg = (on ^ Old) & on;
 	rel = (on ^ Old) & Old;
 }

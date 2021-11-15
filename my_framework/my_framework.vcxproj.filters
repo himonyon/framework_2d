@@ -52,6 +52,9 @@
     <Filter Include="ソース ファイル\Src\Framework\Timer">
       <UniqueIdentifier>{10a2cc3b-3b5c-470b-a642-a9a7fe3a0a69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Src\Utility">
+      <UniqueIdentifier>{7050ca38-c11d-43bd-bf8c-73222f606b83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -96,9 +99,6 @@
     <ClInclude Include="Src\Framework\Font\Font.h">
       <Filter>ソース ファイル\Src\Framework\Font</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Framework\Input\Input.h">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Framework\Timer\Timer.h">
       <Filter>ソース ファイル\Src\Framework\Timer</Filter>
     </ClInclude>
@@ -125,6 +125,18 @@
     </ClInclude>
     <ClInclude Include="Src\Framework\Input\Keyboard.h">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\InputConfig.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\DirectInput.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\Input.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Utility\noDel_ptr.h">
+      <Filter>ソース ファイル\Src\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +170,6 @@
     <ClCompile Include="Src\Framework\Font\Font.cpp">
       <Filter>ソース ファイル\Src\Framework\Font</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Framework\Input\Input.cpp">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Framework\Timer\Timer.cpp">
       <Filter>ソース ファイル\Src\Framework\Timer</Filter>
     </ClCompile>
@@ -187,6 +196,18 @@
     </ClCompile>
     <ClCompile Include="Src\Framework\Input\Mouse.cpp">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\DirectInput.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\Input.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\InputConfig.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Utility\noDel_ptr.cpp">
+      <Filter>ソース ファイル\Src\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

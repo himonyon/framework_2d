@@ -3,23 +3,23 @@
 
 //èâä˙âª
 bool SceneTitle::Initialize() {
-	sprite = CreateSprite<Sprite>(new Sprite(500, 300, 200, 200, L"Data/Image/sample.png"));
+	sp = noDel_ptr<Sprite>(CreateSprite<Sprite>(new Sprite(1100, 300, 200, 200, L"Data/Image/sample.png")));
+	sprite = noDel_ptr<Sprite>(CreateSprite<Sprite>(new Sprite(500, 300, 200, 200, L"Data/Image/sample.png")));
 	sprite->SetRenderPriority(2);
 	sprite->vtx[0].a = 0.2f;
-	sprite2 = CreateSprite<Sprite>(new Sprite(100, 300, 200, 200, L"Data/Image/sample.png"));
-	sound0 = CreateSound(new Sound(L"Data/Sound/title_bgm.wav"));
+	sprite2 = noDel_ptr<Sprite>(CreateSprite<Sprite>(new Sprite(100, 300, 200, 200, L"Data/Image/sample.png")));
+	sound0 = noDel_ptr<Sound>(CreateSound(new Sound(L"Data/Sound/title_bgm.wav")));
 	sound0->Play();
 
 	return true;
 }
 
 void SceneTitle::Terminate() {
-
 }
 
 //èàóù
 void SceneTitle::Execute() {
-	if (Keyboard::On(DIK_SPACE)) {
+	if (Input::Trg(InputConfig::Decide)) {
 		switchScene(eSceneTable::Game);
 	}
 
