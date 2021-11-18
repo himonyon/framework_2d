@@ -14,16 +14,24 @@ bool Joystick::Rel(int button) {
 	return (DirectInput::GetCurrentJoystick().rgbButtons[button] == 0 && DirectInput::GetOldJoystick().rgbButtons[button] != 0);
 }
 float Joystick::GetLX() {
-	return DirectInput::GetCurrentJoystick().lX * DirectInput::GetJoyAxisRange();
+	float lx = DirectInput::GetCurrentJoystick().lX * DirectInput::GetJoyAxisRange();
+	if (lx < 0.1f && lx > -0.1f) return 0;
+	return lx;
 }
 float Joystick::GetLY() {
-	return DirectInput::GetCurrentJoystick().lY * DirectInput::GetJoyAxisRange();
+	float ly = DirectInput::GetCurrentJoystick().lY * DirectInput::GetJoyAxisRange();
+	if (ly < 0.1f && ly > -0.1f) return 0;
+	return ly;
 }
 float Joystick::GetRX() {
-	return DirectInput::GetCurrentJoystick().lZ * DirectInput::GetJoyAxisRange();
+	float rx = DirectInput::GetCurrentJoystick().lZ * DirectInput::GetJoyAxisRange();
+	if (rx < 0.1f && rx > -0.1f) return 0;
+	return rx;
 }
 float Joystick::GetRY() {
-	return DirectInput::GetCurrentJoystick().lRz * DirectInput::GetJoyAxisRange();
+	float ry = DirectInput::GetCurrentJoystick().lRz * DirectInput::GetJoyAxisRange();
+	if (ry < 0.1f && ry > -0.1f) return 0;
+	return ry;
 }
 bool Joystick::PovOn(int pov) {
 	return DirectInput::GetCurrentJoystick().rgdwPOV[0] == pov;

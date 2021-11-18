@@ -1,13 +1,5 @@
 #pragma once
 
-//’¸“_\‘¢‘Ì
-struct stVertex
-{
-	float x, y;
-	float r, g, b, a;
-	float u, v;	
-};
-
 class Sprite {
 public:
 	const static int VertexNum = 4;

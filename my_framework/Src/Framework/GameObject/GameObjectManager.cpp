@@ -36,6 +36,7 @@ void GameObjectManager::Execute() {
 	for (auto& obj : objects2d) {
 		if (obj == nullptr) continue;
 		if (obj->isExecuteEnable() == false) continue;
+		if (obj->GetParent() != nullptr && obj->GetParent()->isExecuteEnable() == false) continue;
 		obj->Execute();
 
 		//描画順が変更された場合ソート
