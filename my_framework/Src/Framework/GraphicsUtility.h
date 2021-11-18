@@ -32,3 +32,11 @@ public:
 	float y;
 	float z;
 };
+
+//2D’¸“_\‘¢‘Ì
+struct stVertex
+{
+	float x, y;
+	float r, g, b, a;
+	float u, v;
+};
