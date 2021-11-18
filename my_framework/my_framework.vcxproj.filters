@@ -55,6 +55,15 @@
     <Filter Include="ソース ファイル\Src\Utility">
       <UniqueIdentifier>{7050ca38-c11d-43bd-bf8c-73222f606b83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Src\Framework\GameObject">
+      <UniqueIdentifier>{0d83ce38-81c9-4d64-9910-ab5e990e7bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Public\Scene\Title">
+      <UniqueIdentifier>{463a6068-eac1-44de-bd7d-02d4246c3588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Src\Public\Scene\Game">
+      <UniqueIdentifier>{f154b116-15fe-4e1e-ab75-046d4a3a6c2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -79,12 +88,6 @@
       <Filter>ソース ファイル\Src\Framework\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Src\Public\Scene\scene.h">
-      <Filter>ソース ファイル\Src\Public\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Public\Scene\scene_game.h">
-      <Filter>ソース ファイル\Src\Public\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Public\Scene\scene_title.h">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Src\Public\Scene\sceneTable.h">
@@ -138,6 +141,27 @@
     <ClInclude Include="Src\Utility\noDel_ptr.h">
       <Filter>ソース ファイル\Src\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Framework\GameObject\GameObject.h">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\GameObject\GameObject2D.h">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\GameObject\GameObjectManager.h">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\GraphicsUtility.h">
+      <Filter>ソース ファイル\Src\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Animation\AnimationManager.h">
+      <Filter>ソース ファイル\Src\Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Public\Scene\Game\scene_game.h">
+      <Filter>ソース ファイル\Src\Public\Scene\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Public\Scene\Title\scene_title.h">
+      <Filter>ソース ファイル\Src\Public\Scene\Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="my_framework.cpp">
@@ -150,12 +174,6 @@
       <Filter>ソース ファイル\Src\Framework\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Src\Public\Scene\scene.cpp">
-      <Filter>ソース ファイル\Src\Public\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Public\Scene\scene_game.cpp">
-      <Filter>ソース ファイル\Src\Public\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Public\Scene\scene_title.cpp">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Src\Public\Scene\sceneTable.cpp">
@@ -179,13 +197,7 @@
     <ClCompile Include="Src\Framework\Sprite\Sprite.cpp">
       <Filter>ソース ファイル\Src\Framework\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Framework\Sprite\SpriteManager.cpp">
-      <Filter>ソース ファイル\Src\Framework\Sprite</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Framework\Sound\Sound.cpp">
-      <Filter>ソース ファイル\Src\Framework\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Sound\SoundManager.cpp">
       <Filter>ソース ファイル\Src\Framework\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Src\Framework\Input\Keyboard.cpp">
@@ -206,8 +218,23 @@
     <ClCompile Include="Src\Framework\Input\InputConfig.cpp">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Utility\noDel_ptr.cpp">
-      <Filter>ソース ファイル\Src\Utility</Filter>
+    <ClCompile Include="Src\Framework\GameObject\GameObject.cpp">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\GameObject\GameObject2D.cpp">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\GameObject\GameObjectManager.cpp">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Animation\AnimationManager.cpp">
+      <Filter>ソース ファイル\Src\Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Public\Scene\Game\scene_game.cpp">
+      <Filter>ソース ファイル\Src\Public\Scene\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Public\Scene\Title\scene_title.cpp">
+      <Filter>ソース ファイル\Src\Public\Scene\Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -18,10 +18,9 @@ bool Main::Init(void* hWnd) {
 	Direct3D::InitD3D(hWnd);
 	Font::Initialize(hWnd);
 	Shader::InitShader();
-	Sprite::Initialize();
+	GameObject2D::Initialize();
 	Sound::InitSound();
 	DirectInput::InitInput(hWnd);
-
 
 	//ÉVÅ[ÉìçÏê¨
 	switchScene();
@@ -36,7 +35,7 @@ void Main::Destroy() {
 
 	DirectInput::DestroyInput();
 	Sound::DestroySound();
-	Sprite::Destroy();
+	GameObject2D::Destroy();
 	Shader::DestroyShader();
 	Font::Destroy();
 	Direct3D::DestroyD3D();

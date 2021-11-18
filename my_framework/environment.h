@@ -45,12 +45,17 @@
 
 using namespace DirectX;
 
-//自作ポインタクラス
+//Utility
+#include "Src/Framework/GraphicsUtility.h"
 #include "Src//Utility/noDel_ptr.h"
 
 //フレームワークのヘッダー
 #include "Src/Framework/Sprite/Sprite.h"
 #include "Src/Framework/Sprite/SpriteManager.h"
+
+#include "Src/Framework/GameObject/GameObject.h"
+#include "Src/Framework/GameObject/GameObject2D.h"
+#include "Src//Framework/GameObject/GameObjectManager.h"
 
 #include "Src//Framework/Timer/Timer.h"
 
@@ -73,6 +78,7 @@ using namespace DirectX;
 
 //アニメーション
 #include "Src/Framework/Animation/SpriteAnimation.h"
+#include "Src/Framework/Animation/AnimationManager.h"
 
 //シーン関係のヘッダ
 #include "Src/Public/Scene/sceneTable.h"

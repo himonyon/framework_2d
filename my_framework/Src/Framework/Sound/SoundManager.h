@@ -10,9 +10,16 @@ public:
 		sounds.clear();
 	}
 
-	Sound* CreateSound(Sound* instance) {
+	
+	noDel_ptr<Sound> CreateSound(Sound* instance) {
 		sounds.emplace_back(instance);
-		Sound* p = sounds.back();
+		noDel_ptr<Sound> p = noDel_ptr<Sound>(sounds.back());
+		return p;
+	}
+	noDel_ptr<Sound> CreateSound(LPCWSTR file) {
+		Sound* instance = new Sound(file);
+		sounds.emplace_back(instance);
+		noDel_ptr<Sound> p = noDel_ptr<Sound>(sounds.back());
 		return p;
 	}
 

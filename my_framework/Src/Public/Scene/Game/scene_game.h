@@ -2,8 +2,8 @@
 
 class SceneGame : public Scene{
 private:
-	noDel_ptr<Sprite> sprite;
-	noDel_ptr<Sound> sound0;
+	noDel_ptr<GameObject2D> pSample0;
+	noDel_ptr<Sound> pSound0;
 private:
 	//‰Šú‰»
 	bool Initialize();

@@ -2,11 +2,11 @@
 
 class SceneTitle : public Scene {
 private:
-	noDel_ptr<Sprite> sprite;
-	noDel_ptr<Sprite> sprite2;
-	noDel_ptr<Sound> sound0;
-	noDel_ptr<Sprite> sp;
-	std::unique_ptr<Sprite>usp;
+	noDel_ptr<Sprite> pSp0;
+	noDel_ptr<GameObject2D> pObj1;
+	noDel_ptr<Sound> pSound0;
+	noDel_ptr<GameObject2D> pObj2;
+	noDel_ptr<SpriteAnimation> pAnim;
 
 private:
 	//èâä˙âª

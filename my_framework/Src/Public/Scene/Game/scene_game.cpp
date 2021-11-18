@@ -3,10 +3,9 @@
 
 //èâä˙âª
 bool SceneGame::Initialize() {
-	sprite = noDel_ptr<Sprite>(CreateSprite<Sprite>(new Sprite(10, 10, 200, 200, L"Data/Image/sample.png")));
-	sprite->vtx[0].a = 0.2f;
-	sound0 = noDel_ptr<Sound>(CreateSound(new Sound(L"Data/Sound/title_bgm.wav")));
-	sound0->Play();
+	pSample0 = noDel_ptr<GameObject2D>(CreateObject2D(10, 10, 200, 200, CreateSprite(L"Data/Image/sample.png",0.5f)));
+	pSound0 = noDel_ptr<Sound>(CreateSound(L"Data/Sound/title_bgm.wav"));
+	pSound0->Play();
 
 	return true;
 }
