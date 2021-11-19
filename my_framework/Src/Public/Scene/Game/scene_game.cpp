@@ -17,7 +17,7 @@ void SceneGame::Terminate() {
 //ˆ—
 void SceneGame::Execute() {
 	if (Input::Trg(InputConfig::Cansel)) {
-		switchScene(eSceneTable::Title);
+		SceneManager::SwitchScene(eSceneTable::Title);
 	}
 
 

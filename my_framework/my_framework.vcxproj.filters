@@ -90,9 +90,6 @@
     <ClInclude Include="Src\Public\Scene\scene.h">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Public\Scene\sceneTable.h">
-      <Filter>ソース ファイル\Src\Public\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Framework\Main.h">
       <Filter>ソース ファイル\Src\Framework</Filter>
     </ClInclude>
@@ -162,6 +159,9 @@
     <ClInclude Include="Src\Public\Scene\Title\scene_title.h">
       <Filter>ソース ファイル\Src\Public\Scene\Title</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Public\Scene\SceneManager.h">
+      <Filter>ソース ファイル\Src\Public\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="my_framework.cpp">
@@ -174,9 +174,6 @@
       <Filter>ソース ファイル\Src\Framework\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Src\Public\Scene\scene.cpp">
-      <Filter>ソース ファイル\Src\Public\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Public\Scene\sceneTable.cpp">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Src\Framework\Main.cpp">
@@ -235,6 +232,9 @@
     </ClCompile>
     <ClCompile Include="Src\Public\Scene\Title\scene_title.cpp">
       <Filter>ソース ファイル\Src\Public\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Public\Scene\SceneManager.cpp">
+      <Filter>ソース ファイル\Src\Public\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

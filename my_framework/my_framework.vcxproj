@@ -166,7 +166,7 @@
     <ClInclude Include="Src\Framework\Timer\Timer.h" />
     <ClInclude Include="Src\Public\Scene\Game\scene_game.h" />
     <ClInclude Include="Src\Public\Scene\scene.h" />
-    <ClInclude Include="Src\Public\Scene\sceneTable.h" />
+    <ClInclude Include="Src\Public\Scene\SceneManager.h" />
     <ClInclude Include="Src\Public\Scene\Title\scene_title.h" />
     <ClInclude Include="Src\Utility\noDel_ptr.h" />
     <ClInclude Include="targetver.h" />
@@ -194,7 +194,7 @@
     <ClCompile Include="Src\Framework\Timer\Timer.cpp" />
     <ClCompile Include="Src\Public\Scene\Game\scene_game.cpp" />
     <ClCompile Include="Src\Public\Scene\scene.cpp" />
-    <ClCompile Include="Src\Public\Scene\sceneTable.cpp" />
+    <ClCompile Include="Src\Public\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Public\Scene\Title\scene_title.cpp" />
     <ClCompile Include="WICTextureLoader11.cpp" />
   </ItemGroup>

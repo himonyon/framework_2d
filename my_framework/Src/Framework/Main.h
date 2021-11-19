@@ -3,11 +3,6 @@
 #include "../../environment.h"
 
 
-//起動時のシーン
-extern eSceneTable initialScene;
-//シーンのインスタンス
-extern Scene* pScene;
-
 class Main {
 public:
 	bool Init(void* hWnd);

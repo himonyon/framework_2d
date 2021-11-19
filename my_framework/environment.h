@@ -81,6 +81,7 @@ using namespace DirectX;
 #include "Src/Framework/Animation/AnimationManager.h"
 
 //シーン関係のヘッダ
-#include "Src/Public/Scene/sceneTable.h"
+#include "Src/Public/Scene/SceneManager.h"
+
 
 

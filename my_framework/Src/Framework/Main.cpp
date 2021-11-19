@@ -14,7 +14,6 @@ bool Main::Init(void* hWnd) {
 
 	performanceCounter = QueryPerformanceFrequency(&freq);
 
-
 	Direct3D::InitD3D(hWnd);
 	Font::Initialize(hWnd);
 	Shader::InitShader();
@@ -23,7 +22,7 @@ bool Main::Init(void* hWnd) {
 	DirectInput::InitInput(hWnd);
 
 	//シーン作成
-	switchScene();
+	SceneManager::SwitchScene();
 
 	return true;
 }
@@ -31,7 +30,7 @@ bool Main::Init(void* hWnd) {
 //
 // 
 void Main::Destroy() {
-	deleteScene();
+	SceneManager::DeleteScene();
 
 	DirectInput::DestroyInput();
 	Sound::DestroySound();
@@ -68,7 +67,7 @@ void Main::App() {
 
 	Render();
 
-	switchScene();
+	SceneManager::SwitchScene();
 
 	if (performanceCounter)
 	{	//フレームの終了時間を取得
@@ -93,12 +92,12 @@ void Main::App() {
 void Main::Execute() {
 	DirectInput::KeyManager();
 
-	pScene->Execute();
+	SceneManager::GetCurrentScene()->Execute();
 }
 //
 //
 //
 void Main::Render() {
-	pScene->Render();
+	SceneManager::GetCurrentScene()->Render();
 	Font::Render();
 }

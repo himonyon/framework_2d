@@ -26,7 +26,7 @@ void SceneTitle::Terminate() {
 //èàóù
 void SceneTitle::Execute() {
 	if (Input::Trg(InputConfig::Decide)) {
-		switchScene(eSceneTable::Game);
+		SceneManager::SwitchScene(eSceneTable::Game);
 	}
 
 	if (IsCollide2D(pObj1, pObj2) != eCollideState::None) {
