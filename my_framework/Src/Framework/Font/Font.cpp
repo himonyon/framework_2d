@@ -7,7 +7,7 @@ ID2D1RenderTarget* Font::pRenderTarget = 0;
 ID2D1SolidColorBrush* Font::pBrush;
 D2D1_RECT_F	Font::rect = { 0 };
 
-Font* Font::fonts[] = {0};
+Font* Font::fonts[] = { 0 };
 
 DWORD Font::Color = 0xffffffff;
 DWRITE_TEXT_ALIGNMENT Font::Alignment = DWRITE_TEXT_ALIGNMENT::DWRITE_TEXT_ALIGNMENT_LEADING;
@@ -118,7 +118,7 @@ Font::Font() {
 	col.b = (float)((Color & 0x000000ff) >> 0) * reciprocal;
 	col.a = (float)((Color & 0xff000000) >> 24) * reciprocal;
 	pBrush->SetColor(&col);
-	
+
 	//フォントの作成
 	if (Create(FontStyle, (int)size) == false)
 	{
@@ -168,8 +168,8 @@ void Font::RenderString() {
 		}
 
 		//描画位置の設定
-		rect.left = fonts[i]->rectL;
-		rect.top = fonts[i]->rectT;
+		rect.left = fonts[i]->rectL + fonts[i]->posX;
+		rect.top = fonts[i]->rectT + fonts[i]->posY;
 		rect.right = fonts[i]->rectR;
 		rect.bottom = fonts[i]->rectB;
 		fonts[i]->pTextFormat->SetTextAlignment(fonts[i]->alignment);
@@ -294,10 +294,10 @@ void Font::SetRect(float rectL, float rectT, float rectR, float rectB) {
 	RectB = rectB;
 }
 void Font::SetRectWH(float x, float y, float width, float height) {
-	RectL = x - width/2;
+	RectL = x - width / 2;
 	RectT = y - height / 2;
 	RectR = x + width / 2;
-	RectB = y + height/2;
+	RectB = y + height / 2;
 }
 
 void Font::SetColor(DWORD color) {
@@ -307,6 +307,10 @@ void Font::SetColor(DWORD color) {
 void Font::SetFontStyle(float size, const WCHAR* fontName) {
 	Size = size;
 	FontStyle = (WCHAR*)fontName;
+}
+
+void Font::SetFontSize(float size) {
+	Size = size;
 }
 
 void Font::SetTextAlignment(DWRITE_TEXT_ALIGNMENT textAlignment) {

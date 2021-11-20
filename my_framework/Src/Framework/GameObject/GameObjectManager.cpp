@@ -8,20 +8,6 @@ GameObjectManager::~GameObjectManager() {
 	objects2d.clear();
 }
 
-noDel_ptr<GameObject2D> GameObjectManager::CreateObject2D(GameObject2D* instance) {
-	objects2d.emplace_back(instance);
-	noDel_ptr<GameObject2D> p = noDel_ptr<GameObject2D>(objects2d.back());
-	return p;
-}
-noDel_ptr<GameObject2D> GameObjectManager::CreateObject2D(float x, float y, float width, float height,
-	noDel_ptr<Sprite> sprite, bool isRender, noDel_ptr<GameObject> parent)
-{
-	GameObject2D* instance = new GameObject2D(x, y, width, height, sprite, isRender, parent);
-	objects2d.emplace_back(instance);
-	noDel_ptr<GameObject2D> p = noDel_ptr<GameObject2D>(objects2d.back());
-	return p;
-}
-
 void GameObjectManager::Render() {
 	for (auto& obj : objects2d) {
 		if (obj == nullptr) continue;

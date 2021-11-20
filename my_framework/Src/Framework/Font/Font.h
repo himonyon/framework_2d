@@ -9,19 +9,20 @@ private:
 	static ID2D1RenderTarget* pRenderTarget;
 	static ID2D1SolidColorBrush* pBrush;
 
+public:
+	//変換用
+	static WCHAR* FontStyle;
+	static float Size;
+	static DWORD Color;
+	static float PosX, PosY;
+	static float RectL, RectR, RectT, RectB;
+	static DWRITE_TEXT_ALIGNMENT Alignment;
+
 private:
 	IDWriteTextFormat* pTextFormat = 0;
 	static D2D1_RECT_F	rect;
 
 	static Font* fonts[MaxFontNum];
-
-	//変換用
-	static WCHAR* FontStyle;
-	static float Size;
-	static DWORD Color; 
-	static float PosX, PosY;
-	static float RectL, RectR, RectT, RectB;
-	static DWRITE_TEXT_ALIGNMENT Alignment;
 
 	//実データ
 	WCHAR* fontStyle;
@@ -56,6 +57,7 @@ public:
 	static void SetRectWH(float x, float y, float width, float height);
 	static void SetColor(DWORD color);
 	static void SetFontStyle(float size, const WCHAR* fontname);
+	static void SetFontSize(float size);
 	static void SetTextAlignment(DWRITE_TEXT_ALIGNMENT alignment);
 
 	static void Render();

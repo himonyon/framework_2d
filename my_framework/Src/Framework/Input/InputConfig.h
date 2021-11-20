@@ -6,9 +6,16 @@
 /// </summary>
 
 class InputConfig {
-private:
-	static const int DeviceNum = 2;
 public:
-	static int Decide[DeviceNum];
-	static int Cansel[DeviceNum];
+	static std::vector<int> decide;
+	static std::vector<int> cancel;
+	static std::vector<int> cursorUp;
+	static std::vector<int> cursorDown;
+
+	static void InitInputConfig();
+private:
+	static void Decide_Init();
+	static void Cancel_Init();
+	static void CursorUp_Init();
+	static void CursorDown_Init();
 };

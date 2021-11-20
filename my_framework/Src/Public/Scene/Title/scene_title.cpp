@@ -4,10 +4,14 @@
 //èâä˙âª
 bool SceneTitle::Initialize() {
 	pSp0 = CreateSprite(L"Data/Image/bg.jpg");
-	pObj1 = CreateObject2D(500, 300, 200, 200, CreateSprite(L"Data/Image/sample.png"));
+	pObj1 = noDel_ptr<GameObject2D>(CreateObject2D<GameObject2D>(
+		new GameObject2D(500, 300, 200, 200, 
+			CreateSprite(L"Data/Image/sample.png"))));
 	pObj1->SetRenderPriority(2);
 	pObj1->pRenderSprite->vtx[0].a = 0.2f;
-	pObj2 = CreateObject2D(100, 300, 200, 200, CreateSprite(L"Data/Image/sample.png"));
+	pObj2 = noDel_ptr<GameObject2D>(CreateObject2D<GameObject2D>(
+		new GameObject2D(100, 300, 200, 200, 
+			CreateSprite(L"Data/Image/sample.png"))));
 	pSound0 = CreateSound(L"Data/Sound/title_bgm.wav");
 	pSound0->Play();
 
@@ -25,7 +29,7 @@ void SceneTitle::Terminate() {
 
 //èàóù
 void SceneTitle::Execute() {
-	if (Input::Trg(InputConfig::Decide)) {
+	if (Input::Trg(InputConfig::decide)) {
 		SceneManager::SwitchScene(eSceneTable::Game);
 	}
 

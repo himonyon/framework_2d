@@ -33,6 +33,11 @@ public:
 	float z;
 };
 
+//カラー構造体
+struct stColor4 {
+	float r, g, b, a;
+};
+
 //2D頂点構造体
 struct stVertex
 {
