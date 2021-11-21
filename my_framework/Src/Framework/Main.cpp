@@ -20,7 +20,7 @@ bool Main::Init(void* hWnd) {
 	GameObject2D::Initialize();
 	Sound::InitSound();
 	DirectInput::InitInput(hWnd);
-	InputConfig::InitInputConfig();
+	InputConfig::SetUpConfig();
 
 	//ÉVÅ[ÉìçÏê¨
 	SceneManager::SwitchScene();

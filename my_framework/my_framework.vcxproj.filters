@@ -120,19 +120,10 @@
     <ClInclude Include="Src\Framework\Input\Mouse.h">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Framework\Input\Joystick.h">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Framework\Input\Keyboard.h">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Framework\Input\InputConfig.h">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Framework\Input\DirectInput.h">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Framework\Input\Input.h">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClInclude>
     <ClInclude Include="Src\Utility\noDel_ptr.h">
@@ -161,6 +152,15 @@
     </ClInclude>
     <ClInclude Include="Src\Public\Scene\SceneManager.h">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\Input.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\InputConfig.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Input\Joystick.h">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -197,12 +197,6 @@
     <ClCompile Include="Src\Framework\Sound\Sound.cpp">
       <Filter>ソース ファイル\Src\Framework\Sound</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Framework\Input\Keyboard.cpp">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Input\Joystick.cpp">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Framework\Input\Mouse.cpp">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClCompile>
@@ -210,9 +204,6 @@
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClCompile>
     <ClCompile Include="Src\Framework\Input\Input.cpp">
-      <Filter>ソース ファイル\Src\Framework\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Framework\Input\InputConfig.cpp">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClCompile>
     <ClCompile Include="Src\Framework\GameObject\GameObject.cpp">
@@ -235,6 +226,15 @@
     </ClCompile>
     <ClCompile Include="Src\Public\Scene\SceneManager.cpp">
       <Filter>ソース ファイル\Src\Public\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\InputConfig.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\Joystick.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Input\Keyboard.cpp">
+      <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

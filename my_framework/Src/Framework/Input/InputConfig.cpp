@@ -8,29 +8,36 @@ std::vector<int> InputConfig::decide = {};
 std::vector<int> InputConfig::cancel = {};
 std::vector<int> InputConfig::cursorUp = {};
 std::vector<int> InputConfig::cursorDown = {};
+std::vector<int> InputConfig::cursorRight = {};
+std::vector<int> InputConfig::cursorLeft = {};
 
-void InputConfig::InitInputConfig() {
-	Decide_Init();
-	Cancel_Init();
-	CursorUp_Init();
-	CursorDown_Init();
-}
+bool InputConfig::SetUpConfig() {
+	char _key[256] = { 0 };
+	//ファイルを開いて内容を読み込む
+	FILE* fp = NULL;
+	_wfopen_s(&fp, L"Data/Input/InputConfig.txt", L"rt");
+	if (fp == NULL) return false;
 
-void InputConfig::Decide_Init() {
-	decide.emplace_back(DIK_SPACE);
-	decide.emplace_back(JOY_CIRCLE);
-}
-void InputConfig::Cancel_Init() {
-	cancel.emplace_back(DIK_BACKSPACE);
-	cancel.emplace_back(JOY_CROSS);
-}
-void InputConfig::CursorUp_Init() {
-	cursorUp.emplace_back(DIK_UP);
-	cursorUp.emplace_back(JOY_POVU);
-	cursorUp.emplace_back(JOY_LSTICKU);
-}
-void InputConfig::CursorDown_Init() {
-	cursorDown.emplace_back(DIK_DOWN);
-	cursorDown.emplace_back(JOY_POVD);
-	cursorDown.emplace_back(JOY_LSTICKD);
+	std::vector<int>* temp_vec = &decide;
+
+	//まずは頂点数、ポリゴン数を調べる
+	while (!feof(fp))
+	{
+		//キーワード読み込み
+		fscanf_s(fp, "%s ", _key, (int)sizeof(_key));
+		//ボタン名
+		if (strcmp(_key, "decide") == 0) temp_vec = &decide;
+		else if (strcmp(_key, "cancel") == 0) temp_vec = &cancel;
+		else if (strcmp(_key, "cursorUp") == 0) temp_vec = &cursorUp;
+		else if (strcmp(_key, "cursorDown") == 0) temp_vec = &cursorDown;
+		else if (strcmp(_key, "cursorRight") == 0) temp_vec = &cursorRight;
+		else if (strcmp(_key, "cursorLeft") == 0) temp_vec = &cursorLeft;
+		//各コンテナに数字を格納する
+		else if (strcmp(_key, "") != 0){
+			int temp_i = std::stoi(_key);
+			temp_vec->emplace_back(temp_i);
+		}
+	}
+
+	return true;
 }

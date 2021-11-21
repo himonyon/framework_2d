@@ -251,13 +251,13 @@ void Font::Print(const WCHAR* string, ...) {
 	}
 }
 
-void Font::Print(float rectL, float rectT, const WCHAR* string, ...) {
+void Font::Print(float left, float top, const WCHAR* string, ...) {
 	if (string == NULL)return;
 	for (int i = 0; i < MaxFontNum; i++) {
 		if (fonts[i]->isDraw == false) {
 			fonts[i]->isDraw = true;
-			RectL = rectL;
-			RectT = rectT;
+			PosX = left;
+			PosY = top;
 			va_list	va;
 			va_start(va, string);
 			WCHAR buf[0x100];

@@ -11,11 +11,8 @@ public:
 	static std::vector<int> cancel;
 	static std::vector<int> cursorUp;
 	static std::vector<int> cursorDown;
+	static std::vector<int> cursorRight;
+	static std::vector<int> cursorLeft;
 
-	static void InitInputConfig();
-private:
-	static void Decide_Init();
-	static void Cancel_Init();
-	static void CursorUp_Init();
-	static void CursorDown_Init();
+	static bool SetUpConfig();
 };
