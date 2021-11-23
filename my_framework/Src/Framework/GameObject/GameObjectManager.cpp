@@ -9,6 +9,7 @@ GameObjectManager::~GameObjectManager() {
 }
 
 void GameObjectManager::Render() {
+	//２Dオブジェクトの描画処理
 	for (auto& obj : objects2d) {
 		if (obj == nullptr) continue;
 		if (obj->isRenderEnable() == false) continue;
@@ -18,12 +19,13 @@ void GameObjectManager::Render() {
 }
 
 void GameObjectManager::Execute() {
+	//２Dオブジェクトの処理
 	bool isSorted = false;
 	for (auto& obj : objects2d) {
 		if (obj == nullptr) continue;
 		if (obj->isExecuteEnable() == false) continue;
 		if (obj->GetParent() != nullptr && obj->GetParent()->isExecuteEnable() == false) continue;
-		obj->Execute();
+		obj->UpdateObjState();
 
 		//描画順が変更された場合ソート
 		if (obj->isSortEnable()) {
@@ -31,7 +33,6 @@ void GameObjectManager::Execute() {
 			obj->SetSortEnable(false);
 		}
 	}
-
 	if (isSorted) RenderOrderSort(0, (int)objects2d.size() - 1);
 }
 

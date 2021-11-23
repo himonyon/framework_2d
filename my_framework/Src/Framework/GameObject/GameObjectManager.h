@@ -2,11 +2,16 @@
 
 class GameObjectManager {
 public:
+	int sceneType = 0;
+
 	GameObjectManager() {};
 	~GameObjectManager();
 
+	//２Dオブジェクトクリエイター
 	template<class T>
 	T* CreateObject2D(GameObject2D* instance) {
+		instance->belongSceneType = sceneType;
+		instance->Start();
 		objects2d.emplace_back(instance);
 		return dynamic_cast<T*>(objects2d.back());
 	}

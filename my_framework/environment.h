@@ -49,10 +49,13 @@ using namespace DirectX;
 //Utility
 #include "Src/Framework/GraphicsUtility.h"
 #include "Src//Utility/noDel_ptr.h"
+#include "Src//Utility/UtilFunc.h"
 
 //フレームワークのヘッダー
 #include "Src/Framework/Sprite/Sprite.h"
 #include "Src/Framework/Sprite/SpriteManager.h"
+
+#include "Src/Framework/GameObject/Behavior.h"
 
 #include "Src/Framework/GameObject/GameObject.h"
 #include "Src/Framework/GameObject/GameObject2D.h"

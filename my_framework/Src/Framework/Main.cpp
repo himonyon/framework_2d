@@ -14,6 +14,7 @@ bool Main::Init(void* hWnd) {
 
 	performanceCounter = QueryPerformanceFrequency(&freq);
 
+
 	Direct3D::InitD3D(hWnd);
 	Font::Initialize(hWnd);
 	Shader::InitShader();
@@ -93,12 +94,12 @@ void Main::App() {
 void Main::Execute() {
 	DirectInput::KeyManager();
 
-	SceneManager::GetCurrentScene()->Execute();
+	SceneManager::GetMainScene()->Execute();
 }
 //
 //
 //
 void Main::Render() {
-	SceneManager::GetCurrentScene()->Render();
+	SceneManager::GetMainScene()->Render();
 	Font::Render();
 }

@@ -162,6 +162,12 @@
     <ClInclude Include="Src\Framework\Input\Joystick.h">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Utility\UtilFunc.h">
+      <Filter>ソース ファイル\Src\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\GameObject\Behavior.h">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="my_framework.cpp">
@@ -235,6 +241,12 @@
     </ClCompile>
     <ClCompile Include="Src\Framework\Input\Keyboard.cpp">
       <Filter>ソース ファイル\Src\Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Utility\UtilFunc.cpp">
+      <Filter>ソース ファイル\Src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\GameObject\Behavior.cpp">
+      <Filter>ソース ファイル\Src\Framework\GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

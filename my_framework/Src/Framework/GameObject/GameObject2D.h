@@ -1,3 +1,9 @@
+/*-----------------------------------------------------------
+
+	ゲームオブジェクト2Dクラス
+		画像を扱うゲームオブジェクト
+
+-------------------------------------------------------------*/
 #pragma once
 
 class GameObject2D : public GameObject {
@@ -34,7 +40,6 @@ public:
 	~GameObject2D(void);
 
 	void Render(void) override; //個別レンダー
-	void Execute(void) override;
 
 	void SetSize(float width, float height);
 	void SetColor(float r, float g, float b, float a);

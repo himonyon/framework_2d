@@ -1,3 +1,10 @@
+/*-----------------------------------------------------------
+
+	シーン管理クラス
+		シーン全体を管理する
+		シーン遷移や破棄を行う
+
+-------------------------------------------------------------*/
 #pragma once
 //シーンクラス定義ファイル
 #include "scene.h"
@@ -15,8 +22,8 @@ enum class eSceneTable
 
 class SceneManager {
 private:
-	static std::unique_ptr<Scene> pScene;
-	static std::unique_ptr<Scene> pReservedScene;
+	static Scene* pScene;
+	static Scene* pReservedScene;
 
 	static eSceneTable currentScene;
 	static eSceneTable reservedScene;
@@ -32,7 +39,16 @@ public:
 
 	//シーンの削除
 	static void DeleteScene();
+	static void DeleteMainScene();
+	static void DeleteReserveScene();
 
 	//Getter,Setter
-	static std::unique_ptr<Scene> &GetCurrentScene() { return pScene; }
+	
+	/// <summary>
+	/// 引数の列挙のintと一致する値(sceneType)を持つシーンを返す
+	/// </summary>
+	static Scene*& GetScene(int scene);
+
+	//描画対象シーン(pScene)を返す
+	static Scene*& GetMainScene() { return pScene; }
 };

@@ -57,7 +57,7 @@ void SpriteAnimation::AnimOn() {
 			if (currentKeyFrameIndex == keyFrame.size() - 1) {
 				if (isLoop) AnimLoop();
 				else AnimOff();
-				return;
+ 				return;
 			}
 
 			break;
@@ -69,7 +69,7 @@ void SpriteAnimation::AnimOn() {
 		if (currentKeyFrameIndex < 0) break; //初期値の場合終了
 
 		//次のキーフレームまでの進捗割合(現在のフレーム数-到達しているキーフレーム数) / (次のキーフレーム数-到達しているキーフレーム数)
-		float rate = (flameCount - keyFrame[currentKeyFrameIndex]->flame) /
+		float rate = (flameCount - keyFrame[currentKeyFrameIndex]->flame) / 
 			(keyFrame[i]->flame - keyFrame[currentKeyFrameIndex]->flame);
 
 		//pos
