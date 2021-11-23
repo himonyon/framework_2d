@@ -25,6 +25,7 @@
 #include <dinput.h>
 
 #include <iostream>
+#include <string>
 #include <time.h>
 #include <vector>
 #include <locale.h>
@@ -48,10 +49,13 @@ using namespace DirectX;
 //Utility
 #include "Src/Framework/GraphicsUtility.h"
 #include "Src//Utility/noDel_ptr.h"
+#include "Src//Utility/UtilFunc.h"
 
 //フレームワークのヘッダー
 #include "Src/Framework/Sprite/Sprite.h"
 #include "Src/Framework/Sprite/SpriteManager.h"
+
+#include "Src/Framework/GameObject/Behavior.h"
 
 #include "Src/Framework/GameObject/GameObject.h"
 #include "Src/Framework/GameObject/GameObject2D.h"
@@ -81,6 +85,7 @@ using namespace DirectX;
 #include "Src/Framework/Animation/AnimationManager.h"
 
 //シーン関係のヘッダ
-#include "Src/Public/Scene/sceneTable.h"
+#include "Src/Public/Scene/SceneManager.h"
+
 
 

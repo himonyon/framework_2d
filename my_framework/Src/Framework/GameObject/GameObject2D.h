@@ -1,3 +1,9 @@
+/*-----------------------------------------------------------
+
+	ゲームオブジェクト2Dクラス
+		画像を扱うゲームオブジェクト
+
+-------------------------------------------------------------*/
 #pragma once
 
 class GameObject2D : public GameObject {
@@ -10,7 +16,7 @@ public:
 	float sizeY;
 
 	//カラー
-	float col_r[Sprite::VertexNum], col_g[Sprite::VertexNum], col_b[Sprite::VertexNum], col_a[Sprite::VertexNum];
+	stColor4 color[Sprite::VertexNum];
 
 private:
 	int renderPriority = 0; //描画順
@@ -34,9 +40,10 @@ public:
 	~GameObject2D(void);
 
 	void Render(void) override; //個別レンダー
-	void Execute(void) override;
 
+	void SetSize(float width, float height);
 	void SetColor(float r, float g, float b, float a);
+	void SetColor(stColor4 color);
 	void SetRotation(float rot);
 
 	void SetRenderPriority(int value); //描画順位の設定

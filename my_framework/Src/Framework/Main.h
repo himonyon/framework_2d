@@ -1,12 +1,13 @@
+/*-----------------------------------------------------------
+
+	Mainクラス
+		ゲーム全体の処理の流れを管理
+
+-------------------------------------------------------------*/
+
 #pragma once
 #include "../../framework.h"
 #include "../../environment.h"
-
-
-//起動時のシーン
-extern eSceneTable initialScene;
-//シーンのインスタンス
-extern Scene* pScene;
 
 class Main {
 public:
